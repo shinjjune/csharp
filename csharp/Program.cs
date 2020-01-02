@@ -21,9 +21,22 @@ namespace csharp
             Console.WriteLine(string.Format("{0}{1}{2}{3}", s1[rand.Next(0, s1.Length)], s, s2[rand.Next(0, s2.Length)], s3[rand.Next(0, s3.Length)]));
 
             Console.WriteLine("");
-            Main();
+            // while (true)
+            {
+                string inputString;
 
-
+                Console.Write("what is the input string?");
+                inputString = Console.ReadLine();
+                if (inputString == "")
+                {
+                    Console.WriteLine("Input any key");
+                }
+                else
+                {
+                    Console.WriteLine("{0} has {1} characters", inputString, inputString.Length);
+                }
+            }
         }
     }
+   
 }
