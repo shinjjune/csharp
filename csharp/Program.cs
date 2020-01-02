@@ -8,6 +8,20 @@ namespace csharp
 {
     class Program
     {
+        static int Calc(int first, int second, string alth)
+        {
+            switch (alth)
+            {
+                case "+":
+                    return first + second;
+                case "-":
+                    return first - second;
+                case "*":
+                    return first * second;
+                default:
+                    return first / second;
+            }
+        }
         static void Main()
             // Hello
         {
@@ -69,7 +83,7 @@ namespace csharp
             }
             // Calculator
             {
-                while(true)
+                // while(true)
                 {
                     int iFirst = 0, iSecond = 0;
 
@@ -103,21 +117,30 @@ namespace csharp
                     Console.WriteLine("{0}/{1}={2}", iFirst, iSecond, Calc(iFirst, iSecond, "/"));
                 }
             }
-        }
-        static int Calc(int first, int second, string alth)
-        {
-            switch (alth)
+            // retirement
             {
-                case "+":
-                    return first + second;
-                case "-":
-                    return first - second;
-                case "*":
-                    return first * second;
-                default:
-                    return first / second;
+                Console.Write("What is your current age? ");
+                int nage = int.Parse(Console.ReadLine());
+
+                Console.Write("At What age would you like to retire? ");
+                int rage = int.Parse(Console.ReadLine()) - nage;
+
+                int nyear = DateTime.Now.Year; //  올해연도
+                int ryear = nyear + rage;
+
+                if (rage > 0)
+                {
+                    Console.WriteLine("You have {0} years left until you can retire.", rage);
+                    Console.WriteLine("It's {0}, so you can retire in {1}.", nyear, ryear);
+                }
+                else
+                {    // 음수가 나오면 퇴직되었다고 출력
+                    Console.WriteLine("You have been retired for {0} years.", rage.ToString().Replace("-", ""));
+                    Console.WriteLine("It's {0}, You already retired. Thank you!", nyear);
+
+                }
             }
         }
+        
     }
-   
 }
