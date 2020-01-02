@@ -67,7 +67,56 @@ namespace csharp
                     Console.WriteLine("Do you {1} your {2} {0} {3}? That's {4}!", snoun, sverb, sadjective, sadverb, sinterjection);
                 }
             }
+            // Calculator
+            {
+                while(true)
+                {
+                    int iFirst = 0, iSecond = 0;
 
+                    First:
+                    Console.Write("What is the First Number? ");
+                    string firstNum = Console.ReadLine();
+
+                    if(!int.TryParse(firstNum, out iFirst))
+                    {
+                        goto First;
+                    }
+                    if(iFirst <0)
+                    {
+                        goto First;
+                    }
+                Second:
+                    Console.Write("What is the Second Number? ");
+                    string secondNum = Console.ReadLine();
+
+                    if(!int.TryParse(secondNum, out iSecond))
+                    {
+                        goto Second;
+                    }
+                    if(iSecond<0)
+                    {
+                        goto Second;
+                    }
+                    Console.WriteLine("{0}+{1}={2}", iFirst, iSecond, Calc(iFirst, iSecond, "+"));
+                    Console.WriteLine("{0}-{1}={2}", iFirst, iSecond, Calc(iFirst, iSecond, "-"));
+                    Console.WriteLine("{0}*{1}={2}", iFirst, iSecond, Calc(iFirst, iSecond, "*"));
+                    Console.WriteLine("{0}/{1}={2}", iFirst, iSecond, Calc(iFirst, iSecond, "/"));
+                }
+            }
+        }
+        static int Calc(int first, int second, string alth)
+        {
+            switch (alth)
+            {
+                case "+":
+                    return first + second;
+                case "-":
+                    return first - second;
+                case "*":
+                    return first * second;
+                default:
+                    return first / second;
+            }
         }
     }
    
