@@ -140,6 +140,37 @@ namespace csharp
 
                 }
             }
+            {
+                int people, pizza, pizzapiece;
+                int quotient, remainder;
+
+                Console.Write("How many people? ");
+                people = int.Parse(Console.ReadLine());
+                Console.Write("How many pizzas do you have? ");
+                pizza = int.Parse(Console.ReadLine());
+                Console.Write("How many pieces are in a pizza? ");
+                pizzapiece = int.Parse(Console.ReadLine());
+
+                Console.WriteLine("{0} people with {1}{2}", people, pizza, pizza > 1 ? "pizzas" : "a pizza");
+
+                quotient = (pizza * pizzapiece) / people;
+                remainder = (pizza * pizzapiece) % people;
+
+                Console.WriteLine("Each Person gets {0}{1} of pizza.", quotient, quotient > 1 ? "pieces" : "piece");
+                // 피자 나머지 조각이 발생할 때
+                if (remainder > 0)
+                {
+                    Console.WriteLine("and {0}{1} left", remainder, remainder > 1 ? "pieces" : "piece");
+                    // 한 사람당 원하는 피자 조각 수를 입력 받은 다음, 피자를 몇 판 구매해야 하는지 계산
+                    Console.Write("How many pieces of pizza do you want per person? ");
+                    int peoplepizzapiece = int.Parse(Console.ReadLine());
+
+                    pizza = (peoplepizzapiece * people) / pizzapiece;
+
+                    Console.WriteLine("You have to buy {0} {1}.", pizza, pizza > 1 ? "pizzas" : "a pizza");
+                }
+                Console.ReadLine();
+            }
         }
         
     }
